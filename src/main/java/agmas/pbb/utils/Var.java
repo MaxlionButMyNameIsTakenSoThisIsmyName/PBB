@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Var {
     //simple class to store variables so PBB.java doesn't get cloggered
-    public static HashMap<UUID, Role> roleHashMap;
+    public static HashMap<UUID, Role> roleHashMap = new HashMap<>();
 
     public static Role getPlayerRole(Player p) {
         if (roleHashMap.containsKey(p.getUniqueId())) {

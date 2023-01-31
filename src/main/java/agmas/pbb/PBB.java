@@ -18,7 +18,7 @@ public final class PBB extends JavaPlugin {
         task.runTaskTimer(this, 0, 1);
 
         //make REAL sure the worlds are loaded! fuck you spigot
-        while (Bukkit.getWorld("world") != null) {}
+        while (Bukkit.getWorld("world") == null) {}
 
         // schedule - loads of things require schedule so here it is
         ScheduleHandler task2 = new ScheduleHandler();
