@@ -6,3 +6,7 @@ prefix: PBB
 authors: [ agmas ]
 description: A remake of PrisonGame- used on server PrisonButBad
 website: agmas.repl.co
+commands:
+  warden:
+    description: Allows you to become the warden/use warden controls
+    usage: /<command>

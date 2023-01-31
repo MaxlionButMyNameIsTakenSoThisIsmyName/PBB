@@ -1,8 +1,13 @@
-agmas/pbb/tasks/NoGMSHandler.class
 agmas/pbb/listeners/PlayerJoinListener.class
 agmas/pbb/utils/Var.class
-agmas/pbb/utils/Repeated.class
-agmas/pbb/tasks/ScheduleHandler.class
+agmas/pbb/listeners/InventoryBlockListener.class
 agmas/pbb/PBB.class
 agmas/pbb/utils/Role.class
+agmas/pbb/listeners/PlayerDeathListener.class
+agmas/pbb/tasks/NoGMSHandler.class
+agmas/pbb/utils/Repeated.class
+agmas/pbb/tasks/ScheduleHandler.class
+agmas/pbb/commands/WardenCommand.class
+agmas/pbb/commands/warden/HelpCommand.class
 agmas/pbb/tasks/PlayerTick.class
+agmas/pbb/commands/warden/DefaultCommand.class

@@ -2,10 +2,14 @@ package agmas.pbb.utils;
 
 //for things that happen constantly, resetting player to prisoner, etc.
 
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class Repeated {
@@ -17,6 +21,23 @@ public class Repeated {
     }
 
     public static void setKit(Player p) {
+        if (Var.getPlayerRole(p).equals(Role.WARDEN)) {
+            p.getInventory().clear();
+            ItemStack wardenSword = new ItemStack(Material.DIAMOND_SWORD);
+            wardenSword.addEnchantment(Enchantment.DAMAGE_ALL, 2);
+            wardenSword.addEnchantment(Enchantment.DURABILITY, 2);
+            p.getInventory().addItem(wardenSword);
+
+            ItemStack card = new ItemStack(Material.TRIPWIRE_HOOK);
+            ItemMeta cardm = card.getItemMeta();
+            cardm.setDisplayName(ChatColor.BLUE + "Keycard " + ChatColor.RED + "[CONTRABAND]");
+            card.setItemMeta(cardm);
+            p.getInventory().addItem(card);
+            p.getInventory().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
+            p.getInventory().setChestplate(new ItemStack(Material.NETHERITE_CHESTPLATE));
+            p.getInventory().setLeggings(new ItemStack(Material.IRON_LEGGINGS));
+            p.getInventory().setBoots(new ItemStack(Material.IRON_BOOTS));
+        }
         if (Var.getPlayerRole(p).equals(Role.PRISONER)) {
             ItemStack orangechest = new ItemStack(Material.LEATHER_CHESTPLATE);
             LeatherArmorMeta chestmeta = (LeatherArmorMeta) orangechest.getItemMeta();

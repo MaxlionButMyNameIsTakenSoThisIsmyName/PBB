@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class PlayerJoinListener implements Listener {
     @EventHandler
-    public void onPlayerDropItem(PlayerJoinEvent event) {
+    public void onJoin(PlayerJoinEvent event) {
         Repeated.prisonerify(event.getPlayer());
     }
 }
