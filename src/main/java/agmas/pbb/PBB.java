@@ -1,12 +1,35 @@
 package agmas.pbb;
 
+import agmas.pbb.listeners.PlayerJoinListener;
+import agmas.pbb.tasks.NoGMSHandler;
+import agmas.pbb.tasks.PlayerTick;
+import agmas.pbb.tasks.ScheduleHandler;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PBB extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+
+        //priority for noGMS
+        NoGMSHandler task = new NoGMSHandler();
+        task.runTaskTimer(this, 0, 1);
+
+        //make REAL sure the worlds are loaded! fuck you spigot
+        while (Bukkit.getWorld("world") != null) {}
+
+        // schedule - loads of things require schedule so here it is
+        ScheduleHandler task2 = new ScheduleHandler();
+        task2.runTaskTimer(this, 0, 1);
+
+        // tick players
+        PlayerTick task3 = new PlayerTick();
+        task3.runTaskTimer(this, 0, 1);
+
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(new PlayerJoinListener(), this);
 
     }
 
