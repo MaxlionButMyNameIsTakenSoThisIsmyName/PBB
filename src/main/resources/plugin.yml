@@ -1,0 +1,8 @@
+name: PBB
+version: '${project.version}'
+main: agmas.pbb.PBB
+api-version: 1.19
+prefix: PBB
+authors: [ agmas ]
+description: A remake of PrisonGame- used on server PrisonButBad
+website: agmas.repl.co
