@@ -10,3 +10,6 @@ commands:
   warden:
     description: Allows you to become the warden/use warden controls
     usage: /<command>
+  accept:
+    description: Accept a guard invite.
+    usage: /<command>

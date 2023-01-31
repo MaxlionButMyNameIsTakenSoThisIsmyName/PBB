@@ -1,9 +1,11 @@
 package agmas.pbb;
 
+import agmas.pbb.commands.AcceptCommand;
 import agmas.pbb.commands.WardenCommand;
 import agmas.pbb.listeners.InventoryBlockListener;
 import agmas.pbb.listeners.PlayerDeathListener;
 import agmas.pbb.listeners.PlayerJoinListener;
+import agmas.pbb.listeners.PlayerRespawnListener;
 import agmas.pbb.tasks.NoGMSHandler;
 import agmas.pbb.tasks.PlayerTick;
 import agmas.pbb.tasks.ScheduleHandler;
@@ -35,8 +37,10 @@ public final class PBB extends JavaPlugin {
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new PlayerDeathListener(), this);
         pm.registerEvents(new InventoryBlockListener(), this);
+        pm.registerEvents(new PlayerRespawnListener(), this);
 
         this.getCommand("warden").setExecutor(new WardenCommand());
+        this.getCommand("accept").setExecutor(new AcceptCommand());
 
     }
 

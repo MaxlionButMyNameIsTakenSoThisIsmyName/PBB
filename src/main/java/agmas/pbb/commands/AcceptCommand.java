@@ -1,4 +1,4 @@
-package agmas.pbb.commands.warden;
+package agmas.pbb.commands;
 import agmas.pbb.utils.Repeated;
 import agmas.pbb.utils.Role;
 import agmas.pbb.utils.Var;
@@ -9,22 +9,19 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class DefaultCommand implements CommandExecutor {
+public class AcceptCommand implements CommandExecutor {
 
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player p) {
-            if (Var.warden == null) {
-                for (Player pe : Bukkit.getOnlinePlayers()) {
-                    if (pe != p) {
-                        Repeated.prisonerify(pe);
-                    }
-                }
-                Var.warden = p;
-                Var.roleHashMap.put(p.getUniqueId(), Role.WARDEN);
-                p.sendTitle(ChatColor.RED + p.getName(), ChatColor.GREEN + "is the new warden!");
-                Repeated.setKit(p);
+            switch (Var.askType.get(p)) {
+                case 1:
+                    Bukkit.broadcastMessage(ChatColor.BLUE + p.getName() + " was hired as a guard!");
+                    Var.roleHashMap.put(p.getUniqueId(), Role.GUARD);
+                    Repeated.setKit(p);
+                default:
+                    p.sendMessage(ChatColor.RED + "You haven't been hired!");
             }
         }
         return true;

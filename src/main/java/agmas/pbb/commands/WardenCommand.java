@@ -2,6 +2,7 @@ package agmas.pbb.commands;
 
 import agmas.pbb.PBB;
 import agmas.pbb.commands.warden.DefaultCommand;
+import agmas.pbb.commands.warden.GuardCommand;
 import agmas.pbb.commands.warden.HelpCommand;
 import agmas.pbb.utils.Repeated;
 import agmas.pbb.utils.Role;
@@ -30,6 +31,7 @@ public class WardenCommand implements CommandExecutor {
             return true;
 
         CommandExecutor subcommand = switch (args[0]) {
+            case "guard" -> new GuardCommand();
             default -> new HelpCommand();
         };
 

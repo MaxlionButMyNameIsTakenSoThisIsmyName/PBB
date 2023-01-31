@@ -22,19 +22,12 @@ public class HelpCommand implements CommandExecutor {
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Inventory inv = Bukkit.createInventory(null, 9, "Warden Help");
-        ItemStack whatwarden = new ItemStack(Material.PLAYER_HEAD);
-        ItemMeta wwim = whatwarden.getItemMeta();
-        ArrayList<String> lore = new ArrayList<>();
-        lore.add(ChatColor.RED + "You're the warden!");
-        lore.add(ChatColor.WHITE + "So... What now? Well, being the warden is an important role; \nand there are loads of playstyles! First, you'll need " + ChatColor.BLUE + "Guards." + ChatColor.WHITE + " You can\nSelect the best guards online with /guardelo and hire them\nwith /warden guard (name)!");
-        wwim.setLore(lore);
-        wwim.setDisplayName(ChatColor.GRAY + "How To " + ChatColor.RED + "Play");
-        whatwarden.setItemMeta(wwim);
-        inv.addItem(whatwarden);
-        if (sender instanceof Player p) {
-            p.openInventory(inv);
-        }
+        sender.sendMessage(ChatColor.GRAY + "--------------------------------");
+        sender.sendMessage(ChatColor.RED + "WARDEN COMMANDS");
+        sender.sendMessage(ChatColor.BLUE + "/warden guard " + ChatColor.DARK_BLUE + "(name)" + ChatColor.GRAY + " - " + ChatColor.RED + "Makes a player a guard.");
+        sender.sendMessage(ChatColor.BLUE + "/warden nurse " + ChatColor.DARK_BLUE + "(nurse)" + ChatColor.GRAY + " - " + ChatColor.RED + "Makes a player a nurse.");
+        sender.sendMessage(ChatColor.BLUE + "/warden help " + ChatColor.GRAY + " - " + ChatColor.RED + "Send these messages.");
+        sender.sendMessage(ChatColor.GRAY + "--------------------------------");
         return true;
     }
 }

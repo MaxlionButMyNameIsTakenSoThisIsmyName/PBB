@@ -12,7 +12,7 @@ public class NoGMSHandler extends BukkitRunnable {
     public void run(){
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.getGameMode().equals(GameMode.SURVIVAL))
-                p.setGameMode(GameMode.SURVIVAL);
+                p.setGameMode(GameMode.ADVENTURE);
         }
     }
 }

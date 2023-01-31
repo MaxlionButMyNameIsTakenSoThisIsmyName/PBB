@@ -20,7 +20,7 @@ public class PlayerDeathListener implements Listener {
             if (Var.getPlayerRole(event.getEntity()).equals(Role.WARDEN)) {
                 Var.warden = null;
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    p.sendTitle(ChatColor.RED + p.getName(), ChatColor.DARK_RED + event.getDeathMessage().replace(p.getName(), ""));
+                    p.sendTitle(ChatColor.RED + event.getEntity().getName(), ChatColor.DARK_RED + event.getDeathMessage().replace(event.getEntity().getName(), ""));
                 }
             }
             event.setDeathMessage(ChatColor.RED + event.getDeathMessage());
