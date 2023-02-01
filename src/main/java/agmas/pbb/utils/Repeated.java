@@ -2,10 +2,6 @@ package agmas.pbb.utils;
 
 //for things that happen constantly, resetting player to prisoner, etc.
 
-import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
-import com.comphenix.protocol.events.PacketContainer;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Location;

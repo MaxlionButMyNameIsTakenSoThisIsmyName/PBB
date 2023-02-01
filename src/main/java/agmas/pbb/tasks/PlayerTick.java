@@ -56,7 +56,9 @@ public class PlayerTick extends BukkitRunnable {
                 }
             }
             if (Var.warden == null) {
-                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent( ChatColor.RED + "NO WARDEN! " + ChatColor.GREEN + "Use /warden to become to become warden!"));
+                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent( ChatColor.RED + "NO WARDEN! " + ChatColor.DARK_RED + "Use /warden to become to become warden!"));
+            } else {
+                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(""));
             }
             p.setDisplayName(ChatColor.GRAY + "[" + Var.getPlayerRole(p).roleColor + Var.getPlayerRole(p).displayName.toUpperCase() + ChatColor.GRAY + "] " + Var.getPlayerRole(p).ChattingColor + p.getName());
             if (Var.api.getPlayerAdapter(Player.class).getUser(p).getCachedData().getMetaData().getPrefix() != null) {
